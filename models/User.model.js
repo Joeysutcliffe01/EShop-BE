@@ -6,12 +6,12 @@ const userSchema = new Schema(
     username: {
       type: String,
       unique: true,
-      require: true
+      
     },
     email:{
       type:String,
       unique: true,
-      required: true
+      
     },
     password:{
       type:String,
@@ -24,6 +24,6 @@ const userSchema = new Schema(
   }
 );
 
-const UserInformation = model("UserData", userSchema);
+const User = model("UserData", userSchema);
 
-module.exports = UserInformation;
+module.exports = User;

@@ -26,7 +26,8 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.post("/register", async (req, res, next) => {
+router.post("/signin", async (req, res, next) => {
+  console.log(req.body, "sth comes")
   try {
     const { username, password } = req.body;
     const userAlreadyExists = await User.findOne({ username });
