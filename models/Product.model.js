@@ -3,23 +3,23 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const ProductSchema = new Schema(
   {
-    title: {
+    Title: {
       type: String,
-      unique: true,
-      require: true
+      
+      
     },
     price:{
       type:String,
-      unique: true,
-      required: true
+      
+      
     },
-    description:{
+    Description:{
       type:String,
-      required: true
+      
     },
-    image:{
+     Images:{
         type:String,
-        required: true
+       
       }
   },
   {
