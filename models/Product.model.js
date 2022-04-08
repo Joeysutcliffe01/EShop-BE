@@ -22,6 +22,6 @@ const ProductSchema = new Schema(
   }
 );
 
-const ProductInformation = model("productData", ProductSchema);
+const Product = model("productData", ProductSchema);
 
-module.exports = ProductInformation;
+module.exports = Product;

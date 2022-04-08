@@ -13,4 +13,6 @@ router.get("/getCsrfToken", csrfMiddleware, (req, res, next) => {
 });
 
 router.use("/auth", authRoutes);
+
+router.use(require("./products.routes"));
 module.exports = router;
