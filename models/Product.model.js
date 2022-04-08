@@ -5,22 +5,16 @@ const ProductSchema = new Schema(
   {
     Title: {
       type: String,
-      
-      
     },
-    price:{
-      type:String,
-      
-      
+    price: {
+      type: String,
     },
-    Description:{
-      type:String,
-      
+    Description: {
+      type: String,
     },
-     Images:{
-        type:String,
-       
-      }
+    Images: {
+      type: String,
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

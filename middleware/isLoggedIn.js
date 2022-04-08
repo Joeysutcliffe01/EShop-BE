@@ -1,12 +1,10 @@
 const product = require("../allProducts/allProducts");
-router.get('/profile', (req,res) =>{
-  res.json("profile", {product});
+router.get("/profile", (req, res) => {
+  res.json("profile", { product });
 });
 
-
-
 module.exports = (req, res, next) => {
-  // checks if the user is logged in when trying to access a specific page
+  // checks if the user is logged in when trying to access a page
   if (!req.session.user) {
     return res
       .status(403)

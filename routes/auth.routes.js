@@ -26,16 +26,22 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.post("/signin", async (req, res, next) => {
-  console.log(req.body, "sth comes")
+router.post("/register", async (req, res, next) => {
+  console.log("Register log ---------", req.body);
   try {
     const { username, password } = req.body;
-    const userAlreadyExists = await User.findOne({ username });
-    if (userAlreadyExists) {
+    const userNameAlreadyExists = await User.findOne({ username });
+    if (userNameAlreadyExists) {
       return res.status(400).json({
         errorMessage: "Username already exists, please try a different one!",
       });
     }
+    // const emailAlreadyExists = await User.findOne({ email });
+    // if (emailAlreadyExists) {
+    //   return res.status(400).json({
+    //     errorMessage: "Email already exists, please try a different one!",
+    //   });
+    // }
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
     const user = await new User({ username, password: passwordHash });
@@ -43,12 +49,12 @@ router.post("/signin", async (req, res, next) => {
 
     return res.json({ message: "Successfully signed up user" });
   } catch (err) {
+    console.log(err, "here os the error ---------------");
     return res.status(400).json({ errorMessage: "Something went wrong!" });
   }
 });
 
 router.post("/logout", async (req, res, next) => {
-
   req.session.destroy((err) => {
     if (err) next(err);
     return res.json({ message: "Successfully logged out!" });

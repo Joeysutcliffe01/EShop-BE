@@ -29,6 +29,7 @@ module.exports = (app) => {
   // Because this is a server that will accept requests from outside and it will be hosted ona server with a `proxy`, express needs to know that it should trust that setting.
   // Services like heroku use something called a proxy and you need to add this to your server
   app.set("trust proxy", 1);
+  // app.use(session({}));
 
   // controls a very specific header to pass headers from the frontend
   // ! please configure the cors `origin` key so that you can accept the requests wherever they might be coming from
