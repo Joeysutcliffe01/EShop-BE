@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const ProductSchema = new Schema(
+const CartSchema = new Schema(
   {
     title: {
       type: String,
@@ -11,17 +11,20 @@ const ProductSchema = new Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
     },
-    category: {
+    productId: {
       type: String,
-      // required: true,
     },
-    imageUrl: {
-      type: String,
-      required: true,
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "UserData",
     },
   },
   {
@@ -29,6 +32,6 @@ const ProductSchema = new Schema(
   }
 );
 
-const Product = model("productData", ProductSchema);
+const Cart = model("CartData", CartSchema);
 
-module.exports = Product;
+module.exports = Cart;

@@ -6,7 +6,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       // unique: true,
-      require: true,
+      required: true,
     },
     // email:{
     //   type:String,
@@ -17,6 +17,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    // imageUrl: {
+    //   type: String,
+    //   // required: true,
+    // },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
