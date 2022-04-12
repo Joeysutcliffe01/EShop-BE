@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Product = require("../models/Product.model");
-const Cart = require("../models/Cart.models");
+
 
 router.get("/products", async (req, res, next) => {
   try {
@@ -53,25 +53,6 @@ router.get("/product/:productId", async (req, res) => {
   // console.log("im the product ----------------------------", product);
 });
 
-router.post("/cart", async (req, res) => {
-  console.log(req.body, "i am the body--------------");
 
-  let cartItem = {
-    title: req.body.title,
-    imageUrl: req.body.imageUrl,
-    description: req.body.description,
-    price: req.body.price,
-    productId: req.body.productId,
-    owner: req.body.owner,
-  };
-
-  let cartResponse = await Cart.create(cartItem);
-
-  // res.status(400).json({
-  //     errorMessage: "Error in adding products from server! " + err.message,
-  //   });
-
-  console.log(cartResponse);
-});
 
 module.exports = router;
