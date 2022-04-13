@@ -2,6 +2,11 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
 
+router.get("/user", (req, res, next) => {
+  // console.log(req.session, "req session ---------------joey");
+  res.json(req.session.user);
+});
+
 router.post("/login", async (req, res, next) => {
   try {
     console.log("req.body: ", req.body);
@@ -17,7 +22,7 @@ router.post("/login", async (req, res, next) => {
 
     const sessionUser = { username: user.username, _id: user._id };
     req.session.user = sessionUser;
-    console.log("this is the session---------", req.session);
+    // console.log("this is the session---------", req.session);
     return res.json({ message: "Successfully logged in!", user: sessionUser });
   } catch (err) {
     return res.status(400).json({

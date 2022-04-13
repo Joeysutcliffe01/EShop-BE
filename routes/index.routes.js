@@ -4,6 +4,7 @@ const authRoutes = require("./auth.routes");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
+  console.log(req.session, "req session ---------------============+");
   res.json("All good in here");
 });
 
